@@ -73,7 +73,7 @@ namespace pocketmine {
 	use pocketmine\wizard\SetupWizard;
 	use raklib\RakLib;
 
-	const VERSION = "1.0 dev";
+	const VERSION = "1.0.2";
 	const API_VERSION = "3.0.0-ALPHA5";
 	const CODENAME = "Sharp Rock";
 
