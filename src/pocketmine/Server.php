@@ -1,27 +1,5 @@
 <?php
 
-/*
- *
- *  _____            _               _____           
- * / ____|          (_)             |  __ \          
- *| |  __  ___ _ __  _ ___ _   _ ___| |__) | __ ___  
- *| | |_ |/ _ \ '_ \| / __| | | / __|  ___/ '__/ _ \ 
- *| |__| |  __/ | | | \__ \ |_| \__ \ |   | | | (_) |
- * \_____|\___|_| |_|_|___/\__, |___/_|   |_|  \___/ 
- *                         __/ |                    
- *                        |___/                     
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * @author GenisysPro
- * @link https://github.com/GenisysPro/GenisysPro
- *
- *
-*/
-
 namespace pocketmine;
 
 use pocketmine\block\Block;
@@ -1391,26 +1369,19 @@ class Server{
 	 * @param string $name
 	 */
 	public function addOp($name){
-		$this->getPluginManager()->callEvent($ev = new PlayerAddOpEvent($this->getOfflinePlayer($name)));
-		if(!$ev->isCancelled()){
-		 $this->operators->set(strtolower($name), true);
+		$this->operators->set(strtolower($name), true);
 
-	 	if(($player = $this->getPlayerExact($name)) !== null){
-			 $player->recalculatePermissions();
- 		}
-		$this->operators->save(true);
+		if(($player = $this->getPlayerExact($name)) !== null){
+			$player->recalculatePermissions();
 		}
+		$this->operators->save(true);
 	}
 
 	/**
 	 * @param string $name
 	 */
 	public function removeOp($name){
-		foreach($this->operators->getAll() as $opName => $dummyValue){
-			if(strtolower($name) === strtolower($opName)){
-				$this->operators->remove($opName);
-			}
-		}
+		$this->operators->remove(strtolower($name));
 
 		if(($player = $this->getPlayerExact($name)) !== null){
 			$player->recalculatePermissions();
