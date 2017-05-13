@@ -25,7 +25,7 @@ use pocketmine\block\Block;
 use pocketmine\level\ChunkManager;
 use pocketmine\utils\Random;
 
-class TallGrass extends Populator{
+class GroundFire extends Populator{
 	/** @var ChunkManager */
 	private $level;
 	private $randomAmount;
@@ -46,27 +46,27 @@ class TallGrass extends Populator{
 			$x = $random->nextRange($chunkX * 16, $chunkX * 16 + 15);
 			$z = $random->nextRange($chunkZ * 16, $chunkZ * 16 + 15);
 			$y = $this->getHighestWorkableBlock($x, $z);
-
-			if($y !== -1 and $this->canTallGrassStay($x, $y, $z)){
-				$this->level->setBlockIdAt($x, $y, $z, Block::TALL_GRASS);
-				$this->level->setBlockDataAt($x, $y, $z, 1);
+			//echo "Fire to $x, $y, $z\n";
+			if($y !== -1 and $this->canGroundFireStay($x, $y, $z)){
+				$this->level->setBlockIdAt($x, $y, $z, Block::FIRE);
+				$this->level->updateBlockLight($x, $y, $z);
 			}
 		}
 	}
 
-	private function canTallGrassStay($x, $y, $z){
+	private function canGroundFireStay($x, $y, $z){
 		$b = $this->level->getBlockIdAt($x, $y, $z);
-		return ($b === Block::AIR or $b === Block::SNOW_LAYER) and $this->level->getBlockIdAt($x, $y - 1, $z) === Block::GRASS;
+		return ($b === Block::AIR or $b === Block::SNOW_LAYER) and $this->level->getBlockIdAt($x, $y - 1, $z) === 87;
 	}
 
 	private function getHighestWorkableBlock($x, $z){
-		for($y = 127; $y >= 0; --$y){
+		for($y = 0; $y <= 127; ++$y){
 			$b = $this->level->getBlockIdAt($x, $y, $z);
-			if($b !== Block::AIR and $b !== Block::LEAVES and $b !== Block::LEAVES2 and $b !== Block::SNOW_LAYER){
+			if($b == Block::AIR){
 				break;
 			}
 		}
 
-		return $y === 0 ? -1 : ++$y;
+		return $y === 0 ? -1 : $y;
 	}
 }

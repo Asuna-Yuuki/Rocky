@@ -25,7 +25,7 @@ use pocketmine\block\Block;
 use pocketmine\level\ChunkManager;
 use pocketmine\utils\Random;
 
-class TallGrass extends Populator{
+class DeadBush extends Populator{
 	/** @var ChunkManager */
 	private $level;
 	private $randomAmount;
@@ -47,16 +47,16 @@ class TallGrass extends Populator{
 			$z = $random->nextRange($chunkZ * 16, $chunkZ * 16 + 15);
 			$y = $this->getHighestWorkableBlock($x, $z);
 
-			if($y !== -1 and $this->canTallGrassStay($x, $y, $z)){
-				$this->level->setBlockIdAt($x, $y, $z, Block::TALL_GRASS);
+			if($y !== -1 and $this->canDeadBushStay($x, $y, $z)){
+				$this->level->setBlockIdAt($x, $y, $z, Block::DEAD_BUSH);
 				$this->level->setBlockDataAt($x, $y, $z, 1);
 			}
 		}
 	}
 
-	private function canTallGrassStay($x, $y, $z){
+	private function canDeadBushStay($x, $y, $z){
 		$b = $this->level->getBlockIdAt($x, $y, $z);
-		return ($b === Block::AIR or $b === Block::SNOW_LAYER) and $this->level->getBlockIdAt($x, $y - 1, $z) === Block::GRASS;
+		return ($b === Block::AIR or $b === Block::SNOW_LAYER) and $this->level->getBlockIdAt($x, $y - 1, $z) === Block::SAND;
 	}
 
 	private function getHighestWorkableBlock($x, $z){

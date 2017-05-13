@@ -25,7 +25,7 @@ use pocketmine\block\Block;
 use pocketmine\level\ChunkManager;
 use pocketmine\utils\Random;
 
-class TallGrass extends Populator{
+class Cactus extends Populator{
 	/** @var ChunkManager */
 	private $level;
 	private $randomAmount;
@@ -46,17 +46,27 @@ class TallGrass extends Populator{
 			$x = $random->nextRange($chunkX * 16, $chunkX * 16 + 15);
 			$z = $random->nextRange($chunkZ * 16, $chunkZ * 16 + 15);
 			$y = $this->getHighestWorkableBlock($x, $z);
+			$tallRand = $random->nextRange(0, 17);
+			$yMax = $y + 1 + (int) ($tallRand > 10) + (int) ($tallRand > 15);
 
-			if($y !== -1 and $this->canTallGrassStay($x, $y, $z)){
-				$this->level->setBlockIdAt($x, $y, $z, Block::TALL_GRASS);
-				$this->level->setBlockDataAt($x, $y, $z, 1);
+			if($y !== -1){
+				for(; $y < 127 and $y < $yMax; $y++){
+					if($this->canCactusStay($x, $y, $z)){
+						$this->level->setBlockIdAt($x, $y, $z, Block::CACTUS);
+						$this->level->setBlockDataAt($x, $y, $z, 1);
+					}
+				}
 			}
 		}
 	}
 
-	private function canTallGrassStay($x, $y, $z){
+	private function canCactusStay($x, $y, $z){
 		$b = $this->level->getBlockIdAt($x, $y, $z);
-		return ($b === Block::AIR or $b === Block::SNOW_LAYER) and $this->level->getBlockIdAt($x, $y - 1, $z) === Block::GRASS;
+		$below = $this->level->getBlockIdAt($x, $y - 1, $z);
+		foreach(array($this->level->getBlockIdAt($x + 1, $y, $z), $this->level->getBlockIdAt($x - 1, $y, $z), $this->level->getBlockIdAt($x, $y, $z + 1), $this->level->getBlockIdAt($x, $y, $z - 1)) as $adjacent){
+			if($adjacent !== Block::AIR) return false;
+		}
+		return ($b === Block::AIR) and ($below === Block::SAND or $below === Block::CACTUS);
 	}
 
 	private function getHighestWorkableBlock($x, $z){
