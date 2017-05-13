@@ -34,7 +34,7 @@ settings:
    #Load plugins whose major API version is too new
    minor: false
    #Load plugins whose minor API version is too new
-  plugin-too-old: true
+  plugin-too-old: false
   #Load plugins whose major API version is too old
 
 
