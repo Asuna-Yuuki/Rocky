@@ -23,6 +23,20 @@ settings:
  #Set this approximately to your number of cores.
  #If set to auto, it'll try to detect the number of cores (or use 2)
  async-workers: auto
+ #Whether the server should "try" to add new configs automatically here
+ #DISCLAIMER: WE DO NOT SUPPORT ALL OPTIONS UNDER 'incompatible-plugins'.
+ #DO NOT REPORT ANY BUGS BEFORE MAKING SURE IT DOESN'T RESULT OUT OF THIS OPTION!
+ #Most old plugins crash the server (maybe even segfaults), and can corrupt your savefiles.
+ incompatible-plugins:
+ #Load plugins with incompatible API versions
+  plugin-too-new:
+   major: false
+   #Load plugins whose major API version is too new
+   minor: false
+   #Load plugins whose minor API version is too new
+  plugin-too-old: true
+  #Load plugins whose major API version is too old
+
 
 memory:
  #Global soft memory limit in megabytes. Set to 0 to disable
@@ -35,7 +49,7 @@ memory:
 
  #Main thread hard memory limit in megabytes. Set to 0 to disable
  #This will stop the server when the limit is surpassed
- main-hard-limit: 1024
+ main-hard-limit: 2024
 
  #Period in ticks to check memory (default 1 second)
  check-rate: 20
@@ -77,9 +91,9 @@ network:
  #Set to 0 to compress everything, -1 to disable.
  batch-threshold: 256
  #Compression level used when sending batched packets. Higher = more CPU, less bandwidth usage
- compression-level: 7
+ compression-level: 2
  #Use AsyncTasks for compression. Adds half/one tick delay, less CPU load on main thread
- async-compression: false
+ async-compression: true
  #Experimental, only for Windows. Tries to use UPnP to automatically port forward
  upnp-forwarding: false
 
@@ -87,7 +101,7 @@ debug:
  #To enable assertion execution, set zend.assertions in your php.ini to 1
  assertions:
   #Warn if assertions are enabled in php.ini, due to assertions may impact on runtime performance if enabled.
-  warn-if-enabled: true
+  warn-if-enabled: false
   #Enable throwing exceptions when assertions fail, will allow obtaining more detailed information on the failed assertion, but may cause a server crash.
   #If set to false, a warning will be raised instead of throwing an exception.
   throw-exception: false
@@ -101,7 +115,7 @@ player:
  save-player-data: true
  anti-cheat:
   #If false, will try to prevent speed and noclip cheats. May cause movement issues with some blocks which are not yet properly implemented.
-  allow-movement-cheats: false
+  allow-movement-cheats: true
   #If false, times block breaks to ensure players are not cheating. May cause issues with some blocks which are not yet properly implemented.
   allow-instabreak: false
 
@@ -124,7 +138,7 @@ chunk-sending:
  spawn-radius: 4
  #Save a serialized copy of the chunk in memory for faster sending
  #Useful in mostly-static worlds where lots of players join at the same time
- cache-chunks: false
+ cache-chunks: true
  #Use AsyncTasks for serializing chunks for sending.
  async-chunk-request: false
 
@@ -133,7 +147,7 @@ chunk-ticking:
  per-tick: 40
  #Radius of chunks around a player to tick
  tick-radius: 3
- light-updates: false
+ light-updates: true
  clear-tick-list: true
  #IDs of blocks not to perform random ticking on.
  disable-block-ticking:
@@ -141,9 +155,9 @@ chunk-ticking:
 
 chunk-generation:
  #Max. amount of chunks in the waiting queue to be generated
- queue-size: 8
+ queue-size: 4
  #Max. amount of chunks in the waiting queue to be populated
- population-queue-size: 8
+ population-queue-size: 4
 
 ticks-per:
  animal-spawns: 400
@@ -159,7 +173,7 @@ spawn-limits:
 
 auto-report:
  #Send crash reports for processing
- enabled: true
+ enabled: false
  send-code: true
  send-settings: true
  send-phpinfo: false
@@ -171,7 +185,7 @@ anonymous-statistics:
  host: stats.pocketmine.net
 
 auto-updater:
- enabled: true
+ enabled: false
  on-update:
   warn-console: true
   warn-ops: true
