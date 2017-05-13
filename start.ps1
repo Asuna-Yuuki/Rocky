@@ -1,4 +1,4 @@
-﻿param (
+param (
 	[switch]$Loop = $false
 )
 
@@ -8,19 +8,19 @@ if(Test-Path "bin\php\php.exe"){
 }else{
 	$binary = "php"
 }
-
-if(Test-Path "PocketMine-MP.phar"){
-	$file = "PocketMine-MP.phar"
+if(Test-Path "Rocky.phar"){
+	$file = "Rocky.phar"
 }elseif(Test-Path "src\pocketmine\PocketMine.php"){
 	$file = "src\pocketmine\PocketMine.php"
 }else{
-	echo "Couldn't find a valid PocketMine-MP installation"
+	echo "I couldn't find Rocky's src or phar."
 	pause
 	exit 1
 }
 
 function StartServer{
-	$command = $binary + " " + $file + " --enable-ansi"
+	$command = $binary + " " + $file  + " --enable-ansi"
+    chcp 65001
 	iex $command
 }
 
@@ -35,6 +35,5 @@ while($Loop){
 	$loops++
 	echo "To escape the loop, press CTRL+C now. Otherwise, wait 5 seconds for the server to restart."
 	echo ""
-	Start-Sleep 5
 	StartServer
 }
