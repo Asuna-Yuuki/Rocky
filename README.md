@@ -13,7 +13,7 @@
 
 ## Builds
 
-CodeShip: [![Codeship](https://img.shields.io/codeship/a61004a0-195b-0135-1c78-56843184a771.svg?style=flat-square)](https://app.codeship.com/projects/219260)<br>
+CodeShip: [![CodeShip](https://img.shields.io/codeship/a61004a0-195b-0135-1c78-56843184a771.svg?style=flat-square)](https://app.codeship.com/projects/219260)<br>
 TravisCI: [![TravisCI](https://travis-ci.org/RockySoftware/Rocky.svg?branch=master)](https://travis-ci.org/RockySoftware/Rocky)<br>
 CircleCI: [![CircleCI](https://img.shields.io/circleci/project/github/RockySoftware/Rocky.svg?style=flat-square)](https://circleci.com/gh/RockySoftware/Rocky)<br>
 
