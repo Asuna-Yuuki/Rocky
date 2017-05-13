@@ -21,29 +21,22 @@
 
 namespace pocketmine\item;
 
+use pocketmine\block\Block;
 
-class IronBoots extends Armor{
+class Skull extends Item{
+	const SKELETON = 0;
+	const WITHER_SKELETON = 1;
+	const ZOMBIE = 2;
+	const STEVE = 3;
+	const CREEPER = 4;
+
 	public function __construct($meta = 0, $count = 1){
-		parent::__construct(self::IRON_BOOTS, $meta, $count, "Iron Boots");
+		$this->block = Block::get(Block::SKULL_BLOCK);
+		parent::__construct(self::SKULL, $meta, $count, "Skull");
 	}
 
-	public function getArmorTier(){
-		return Armor::TIER_IRON;
+	public function getMaxStackSize() : int {
+		return 64;
 	}
 
-	public function getArmorType(){
-		return Armor::TYPE_BOOTS;
-	}
-
-	public function getMaxDurability(){
-		return 196;
-	}
-
-	public function getArmorValue(){
-		return 2;
-	}
-
-	public function isBoots(){
-		return true;
-	}
 }
