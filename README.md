@@ -1,33 +1,88 @@
-# [![PocketMine-MP](http://cdn.pocketmine.net/img/PocketMine-MP-h.png)](https://pmmp.io)
 
-__A highly customisable, open source server software for Minecraft: Pocket Edition written in PHP__
+## We have opened up our new official RockyForums, click [here](http://rockysoft.ml/index.php)
+# ![Rocky](http://i.imgur.com/hsukstv.jpg)
+![Status](https://img.shields.io/badge/stability-alpha-ff69b4.svg)<br>
+![GitHub contributors](https://img.shields.io/github/contributors/BlackLight-NL/Rocky.svg)<br>
+## Information
 
-[![Build Status](https://travis-ci.org/pmmp/PocketMine-MP.svg?branch=master)](https://travis-ci.org/pmmp/PocketMine-MP)
+- This is alpha software, you will experience bugs and crashes. You can see our progress [here](https://github.com/RockySoftware/Rocky/milestones)
+- You can make a pull-request if you want to help.
+- We currently are not accepting any more helpers
+- We are not Arufa, we are a replacment!
+- This will not be deleted, if this dies the code will still be here
 
-### Setup, help & support, FAQs
-Head over to the [documentation site](http://pmmp.readthedocs.org/).
-If you don't find what you're looking for there, [talk to a human](#discussion). Please do not use our issue tracker for support requests.
+## Builds
 
-### Discussion
-- [Forums](https://forums.pmmp.io/)
-- [#pmmp + #pocketmine channel IRC](http://webchat.freenode.net/?channels=pmmp,pocketmine)
+CodeShip: [![Codeship](https://img.shields.io/codeship/a61004a0-195b-0135-1c78-56843184a771.svg?style=flat-square)](https://app.codeship.com/projects/219260)<br>
+TravisCI: Coming Soon...<br>
+CircleCI: [![CircleCI](https://img.shields.io/circleci/project/github/RockySoftware/Rocky.svg?style=flat-square)](https://circleci.com/gh/RockySoftware/Rocky)<br>
 
-### Plugins
-There are a very wide range of already-written plugins available which you can use to customise your server. Check out [the old plugin repository](http://plugins.pocketmine.net/) and [Poggit](https://poggit.pmmp.io), or just search GitHub.
+## Installation
 
-### For developers
- * [Latest API documentation](https://jenkins.pmmp.io/job/PocketMine-MP-doc/doxygen/) - Doxygen documentation generated from development
- * [DevTools](https://github.com/pmmp/PocketMine-DevTools/) - A development tools plugin for creating plugins.
+**Self-installation:**<br>
+To install Rocky you will neen to view our Wiki!
+Supported platforms: Linux, Windows, OS X, Raspberry Pi, and ANDROID
 
-### Can I contribute?
-Yes you can! Contributions are welcomed provided that they comply with our [Contributing Guidelines](CONTRIBUTING.md). Please ensure you read the relevant sections of the guidelines carefully before making a Pull Request or opening an Issue.
+**Installation on a Hosting Company:**<br>
+You need to request the hosting company you're using to add in Rocky as a server JAR/PHAR. If they don't respond, or don't add it, then you can try the MCPE hosting providers listed as below that support Rocky as a version for their customers to download.
 
-### Where can I get the latest .phar?
-Head over to our [official Jenkins server](https://jenkins.pmmp.io/)
+* __[Server.PRO](https://server.pro)__
+* __[HostMyServers](https://hostmyservers.com)__
+* __[Digi-Performance](https://digi-performance.net/mcpe-list.php)__
+* __[MinersPlanet](http://minersplanet.com)__
+* __[HK-Hosting GbR](https://hk-hosting.de)__
+* __[Virtual Gladiators](http://virtualgladiators.com)__
+* __[NetherBox](https://netherbox.com/?promo=IMAGICAL)__
+* __[ExtraVM](https://www.extravm.com/minecraft.html)__
+* __[24serv.pro](https://24serv.pro)__ 
+* __[ServerWays Hosting](https://serverwayshosting.com)__
+* __[FadeHost](https://www.fadehost.com)__
 
-## Third-party Libraries/Protocols Used
+## Things to Note
+
+- There is no Fishing
+- Some errors when using /op (rare)
+- Still lots of bugs
+- Startup Bug (rare)
+- *We are working hard to fix this*
+
+
+## Resources
+
+**Guides**
+* __[Documentation: Coming Soon](#)__
+* __[API Documentation: Coming Soon](#)__
+* __[Contributing Guidelines: Coming Soon](#)__
+
+**Contact and Social**
+* __[Forums](http://rockysoft.ml/index.php)__
+* __[Gitter Chat: Coming Soon](#)__
+* __[Official Twitter Account: Coming Soon](#)__
+* __[Discord Chat](https://discord.gg/M4GFyfy)__
+
+## Features
+- Little to no lag at all!
+ - Lots Of Bugs fixed
+ - New biomes and better mobs
+ - Boats
+ - Different door types
+ - Enchantment table work fine (not really) [Fixable by Third-Party Plugin](https://sellfy.com/p/FCea/)
+ - Enchanted items
+ - Potions
+ - Anvil and Brewing
+ - Weather
+ - Experience
+ - More commands (biome, lvdat, makeplugin, summon, etc.)
+ 
+ **Planned Features**
+ - Mob AI (in "mob-ai" branch"
+ - Fishing
+ - All Items (1.0 and 1.1)
+
+## Third-party libraries and protocols used
+
 * __[PHP Sockets](http://php.net/manual/en/book.sockets.php)__
-* __[PHP mbstring](http://php.net/manual/en/book.mbstring.php)__
+* __[PHP SQLite3](http://php.net/manual/en/book.sqlite3.php)__
 * __[PHP BCMath](http://php.net/manual/en/book.bc.php)__
 * __[PHP pthreads](http://pthreads.org/)__ by _[krakjoe](https://github.com/krakjoe)_: Threading for PHP - Share Nothing, Do Everything.
 * __[PHP YAML](https://code.google.com/p/php-yaml/)__ by _Bryan Davis_: The Yaml PHP Extension provides a wrapper to the LibYAML library.
@@ -37,7 +92,7 @@ Head over to our [official Jenkins server](https://jenkins.pmmp.io/)
 * __[Source RCON Protocol](https://developer.valvesoftware.com/wiki/Source_RCON_Protocol)__
 * __[UT3 Query Protocol](http://wiki.unrealadmin.org/UT3_query_protocol)__
 
-## Licensing information
+## Licence
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU Lesser General Public License as published by
@@ -51,5 +106,3 @@ Head over to our [official Jenkins server](https://jenkins.pmmp.io/)
 
 	You should have received a copy of the GNU Lesser General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-pmmp/PocketMine are not affiliated with Mojang. All brands and trademarks belong to their respective owners. PocketMine-MP is not a Mojang-approved software, nor is it associated with Mojang.
