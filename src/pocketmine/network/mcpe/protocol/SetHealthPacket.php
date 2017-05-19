@@ -21,7 +21,7 @@
 
 namespace pocketmine\network\mcpe\protocol;
 
-#include <rules/DataPacket.h>
+#include <rules/DataPacket.h>>
 
 
 use pocketmine\network\mcpe\NetworkSession;
