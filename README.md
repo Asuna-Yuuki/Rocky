@@ -77,7 +77,7 @@ You need to request the hosting company you're using to add in Rocky as a server
  **Planned Features**
  - Mob AI (in "mob-ai" branch"
  - Fishing
- - All Items (1.0 and 1.1)
+ - All Items (1.0 and 1.1) coming soon
 
 ## Third-party libraries and protocols used
 
